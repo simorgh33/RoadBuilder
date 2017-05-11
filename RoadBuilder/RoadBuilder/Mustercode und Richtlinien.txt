@@ -1,0 +1,47 @@
+﻿
+#Code Richtlinien
+
+- Kommentare auf Deutsch !
+- Code auf Englisch (Namen etc ...)
+- Maximale Vererbungen verwenden !
+- Keine unnötigen Klassen
+- Keine Code - Wiederholungen
+- Variablen am Anfang einer Klasse oder einer Code - Datei deklarieren
+- Keine GET UND SET Methoden, sondern Properties
+- Variablen am Anfang mit einem Unterstrich
+
+-- MUSTERCODE --
+
+class Player : MoveableGameObject
+{
+	private int _Lifepoints;
+	private bool _IsAlive;
+
+	public Player() : base()
+	{
+		this._Lifepoints = 100;
+		this._IsAlive = true;
+	}
+
+	public void KillPlayer()
+	{
+		this._Lifepoints = 0;
+		this._IsAlive = false;
+	}
+
+	public Lifepoints
+	{
+		get
+		{
+			return this._Lifepoints;
+		}
+	}
+
+	public IsAlive
+	{
+		get
+		{
+			return this._IsAlive;
+		}
+	}
+}
