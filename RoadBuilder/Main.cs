@@ -15,7 +15,8 @@ namespace Roadbuilder
     {
         private LevelManager LevelManager;
 
-       private Random zufallszahl;
+        private Random zufallszahl;
+        private int wert = 100;
 
         private GamestateManager GamestateManager;
         private KeyInputManager KeyInputManager;
@@ -131,13 +132,31 @@ namespace Roadbuilder
                     {
                         if (Event.ClickedObject != Player && Event.ClickedObject != Fontstring1)
                         {
-                            
-                            Player.Move((Tile)Event.ClickedObject);
                             Tile t = ((Tile)Event.ClickedObject);
-                            MessageBox.Show("data\\res\\textures\\" + test + ".png");
-                            t.Texture = new Texture2D("data\\res\\textures\\"+test+".png");
-                            MessageBox.Show("data\\res\\textures\\" + test + ".png");
-                            test++;
+                            zufallszahl = new Random();
+                            int random = zufallszahl.Next(1, 12);
+                            if ( t.IsClicked == false)
+                            {             
+                                //Player.Move((Tile)Event.ClickedObject);
+                                // MessageBox.Show("data\\res\\textures\\" +random+ ".png");
+                                t.Texture = new Texture2D("data\\res\\textures\\" + random + ".png");
+                                t.IsClicked = true;
+                                int randomCoin = zufallszahl.Next(0, wert+1);
+                                if (randomCoin==0 || randomCoin == 5 || randomCoin == 10 || randomCoin == 15)
+                                {
+                                    t.setCoin = true;
+                                    t.Texture = new Texture2D("data\\res\\textures\\12.png");
+                                   // MessageBox.Show("der wert ist" + wert + "zufall ist :" + randomCoin);
+                                    wert = 100;
+                                   // MessageBox.Show("der wert ist" + wert + "zufall ist :" + randomCoin);
+                                }
+                                wert = wert - 5;
+                               // MessageBox.Show("der wert ist" +wert +"zufall ist :"+randomCoin);
+                            }
+
+                            
+                            
+                            
                         }
                     }
 

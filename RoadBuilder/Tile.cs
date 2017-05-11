@@ -13,6 +13,8 @@ namespace Roadbuilder
 {
     class Tile : StaticGameObject
     {
+        private bool _CLICKED = false;
+        private bool _Coin = false;
         public Tile() : base()
         {
 
@@ -36,6 +38,16 @@ namespace Roadbuilder
         public Tile(string Name, uint ID, Point Position, string TexturePath, Size Size, bool IsVisible, EventHandler EventHandler) : base(Name, ID, Position, Size, TexturePath, IsVisible, EventHandler)
         {
 
+        }
+        public bool IsClicked
+        {
+            get { return this._CLICKED; }
+            set { this._CLICKED = value; }
+        }
+        public bool setCoin
+        {
+            get { return this._Coin; }
+            set { this._Coin = value; }
         }
     }
 }
