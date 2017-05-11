@@ -142,7 +142,7 @@ namespace Roadbuilder
                                 t.Texture = new Texture2D("data\\res\\textures\\" + random + ".png");
                                 t.IsClicked = true;
                                 int randomCoin = zufallszahl.Next(0, wert+1);
-                                if (randomCoin==0 || randomCoin == 5 || randomCoin == 10 || randomCoin == 15)
+                                if (randomCoin==0 ||  randomCoin == 15)
                                 {
                                     t.setCoin = true;
                                     t.Texture = new Texture2D("data\\res\\textures\\12.png");
@@ -151,12 +151,19 @@ namespace Roadbuilder
                                    // MessageBox.Show("der wert ist" + wert + "zufall ist :" + randomCoin);
                                 }
                                 wert = wert - 5;
-                               // MessageBox.Show("der wert ist" +wert +"zufall ist :"+randomCoin);
+                                // MessageBox.Show("der wert ist" +wert +"zufall ist :"+randomCoin);
+
+
+                                Player.Move((Tile)Event.ClickedObject);
+                                if (t.setCoin==true)
+                                {
+                                    MessageBox.Show("money,money,money");
+                                }
                             }
 
-                            
-                            
-                            
+
+
+
                         }
                     }
 
